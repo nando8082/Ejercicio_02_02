@@ -57,167 +57,169 @@ public class libreria {
                         int libro= l.nextInt();
                         switch (libro) {
 
-                case 1:
-                    boolean repLib = true;
-                    do {
-                        System.out.println("GESTIÓN LIBRO DIGITAL");
-                        System.out.println("1. Crear nuevo libro Digital ");
-                        System.out.println("2. Buscar libro digital");
-                        System.out.println("3. Actualizar libro digital");
-                        System.out.println("4. Eliminar libro digital");
-                        System.out.println("5. Listar libros digitales");
-                        System.out.println("6. Precio total del Libro");
-                        System.out.println("7. Regresar al menu principal");
-                        System.out.println("Selecciona una opción");
-                       int lib= l.nextInt();
-                        switch (lib) {
-                            case 1:                              
-                                System.out.println("Precio Establecido");
-                                Double precio = l.nextDouble();
-                                System.out.println("Código del libro:");
-                                int codigo=l.nextInt();
-                                System.out.println("Titulo del libro:");
-                                String titulo=l.next();
-                                System.out.println("Autor del libro:");
-                                String autor=l.next();
-                                System.out.println("Edición del Libro");
-                                String edicion=l.next();
-                                
-                                LibrosDigitales objeto = new LibrosDigitales(precio, codigo, titulo, autor, edicion);
-                                controladorLibroDigital.create(objeto);
-                                break;
-                           case 2:
-                                System.out.println("Ingrese el código del Libro");
-                                int cod1 = l.nextInt();
-                                System.out.println(controladorLibroDigital.read(cod1));
-                                break;
-                            case 3:
-                                //Double precio, Double comision, int codigo, String titulo, String autor, String edicion
-                                System.out.println("Ingrese el código del  libro");
-                                cod1 = l.nextInt();
-                                if (controladorLibroDigital.read(cod1) != null) {
-                                System.out.println("Precio Establecido");
-                                 precio = l.nextDouble();  
-                                System.out.println("Código del libro:");
-                                 codigo=l.nextInt();
-                                System.out.println("Titulo del libro:");
-                                titulo=l.next();
-                                System.out.println("Autor del libro:");
-                                autor=l.next();
-                                System.out.println("Edición del Libro");
-                                edicion=l.next();
-                                objeto = new LibrosDigitales(precio, codigo, titulo, autor, edicion);
-                                objeto.setCodigo(cod1);
-                                controladorLibroDigital.update(objeto);
-                                } else {
-                                    System.out.println("El Libro no existe");
-                                }
-                                break;
-                            case 4:
-                                System.out.println("Ingrese el código del libro  que va a eliminar");
-                                cod1 = l.nextInt();
-                                controladorLibroDigital.delete(cod1);
-                                break;
-                            case 5:
-                                controladorLibroDigital.imprimir();
-                                break;
-                            case 6:
-                                System.out.println("Ingrese el código del libro");
-                                int codigolibro = l.nextInt();
-                                LibrosDigitales librodig=controladorLibroDigital.read(codigolibro);
-                                //System.err.print("Precio total del libro impreso:");
-                                System.err.println("Precio total del libro impreso:"+librodig.getPrecioTotal());
-                                break;
-                            case 7:
-                                repLib = false;
-                                break;
-                        }
-                    } while (repLib);
-                    break;
-                case 2:
-                    boolean repCliente = true;
-                    do {
-                        
-                        System.out.println("MENÚ LIBRO IMPRESO");
-                        System.out.println("1. Crear nuevo libro Impreso ");
-                        System.out.println("2. Buscar libro Impreso");
-                        System.out.println("3. Actualizar libro Impreso");
-                        System.out.println("4. Eliminar libro Impreso");
-                        System.out.println("5. Listar libros Impreso");
-                        System.out.println("6. Precio Total del Libro");
-                        System.out.println("7. Regresar al menu principal");
-                        System.out.println("Selecciona una opción");
-                       int lib= l.nextInt();
-                        switch (lib) {
-                            case 1: //Double precio, Double comision, Double costoEnvio, int codigo, String titulo, String autor, String edicion
-                                System.out.println("Precio Establecido");
-                                Double precio = l.nextDouble();
-                                System.out.println("Código del libro:");
-                                int codigo=l.nextInt();
-                                System.out.println("Titulo del libro:");
-                                String titulo=l.next();
-                                System.out.println("Autor del libro:");
-                                String autor=l.next();
-                                System.out.println("Edicción del Libro");
-                                String edicion=l.next();
-                                LibrosImpreso objeto = new LibrosImpreso(precio, codigo, titulo, autor, edicion);
-                                controladorLibroImpreso.create(objeto);
-                                break;
-                           case 2:
-                                System.out.println("Ingrese el código del Libro impreso");
-                                int cod1 = l.nextInt();
-                               System.out.println(controladorLibroImpreso.read(cod1));
-                                break;
-                            case 3:
-                                System.out.println("Ingrese el código del  libro");
-                                cod1 = l.nextInt();
-                                if (controladorLibroImpreso.read(cod1) != null) {
-                                System.out.println("Precio Establecido");
-                                 precio = l.nextDouble();  
-                                System.out.println("Código del libro:");
-                                 codigo=l.nextInt();
-                                System.out.println("Título del libro:");
-                                titulo=l.next();
-                                System.out.println("Autor del libro:");
-                                autor=l.next();
-                                System.out.println("Ediccion del Libro");
-                                edicion=l.next();
-                                objeto = new LibrosImpreso(precio, codigo, titulo, autor, edicion);
-                                objeto.setCodigo(cod1);
-                                controladorLibroImpreso.update(objeto);
-                                } else {
-                                    System.out.println("El Libro no existe");
-                                }
-                                break;
-                            case 4:
-                                System.out.println("Ingrese el código del libro  que va a eliminar");
-                                cod1 = l.nextInt();
-                                controladorLibroImpreso.delete(cod1);
-                                break;
-                            case 5:
-                                controladorLibroImpreso.imprimir();
-                                break;
-                            case 6:
-                                System.out.println("Ingrese el código del libro");
-                                int codigolibro = l.nextInt();
-                                LibrosImpreso libroim=controladorLibroImpreso.read(codigolibro);
-                                //System.err.print("Precio total del libro impreso:");
-                                System.err.println("Precio total del libro impreso:"+libroim.getPrecioTotal());
-                                //controladorLibroImpreso.imprimir();
-                                break;
-                            case 7:
-                                repCliente = false;
-                                break;
-                        }
-                    } while (repCliente);
+                    case 1:
+                        boolean repLib = true;
+                        do {
+                            System.out.println("GESTIÓN LIBRO DIGITAL");
+                            System.out.println("1. Crear nuevo libro Digital ");
+                            System.out.println("2. Buscar libro digital");
+                            System.out.println("3. Actualizar libro digital");
+                            System.out.println("4. Eliminar libro digital");
+                            System.out.println("5. Listar libros digitales");
+                            System.out.println("6. Precio total del Libro");
+                            System.out.println("7. Regresar al menu principal");
+                            System.out.println("Selecciona una opción");
+                           int lib= l.nextInt();
+                            switch (lib) {
+                                case 1:                              
+                                    System.out.println("Precio Establecido");
+                                    Double precio = l.nextDouble();
+                                    System.out.println("Código del libro:");
+                                    int codigo=l.nextInt();
+                                    System.out.println("Titulo del libro:");
+                                    String titulo=l.next();
+                                    System.out.println("Autor del libro:");
+                                    String autor=l.next();
+                                    System.out.println("Edición del Libro");
+                                    String edicion=l.next();
 
+                                    LibrosDigitales objeto = new LibrosDigitales(precio, codigo, titulo, autor, edicion);
+                                    controladorLibroDigital.create(objeto);
+                                    break;
+                               case 2:
+                                    System.out.println("Ingrese el código del Libro");
+                                    int cod1 = l.nextInt();
+                                    System.out.println(controladorLibroDigital.read(cod1));
+                                    break;
+                                case 3:
+                                    //Double precio, Double comision, int codigo, String titulo, String autor, String edicion
+                                    System.out.println("Ingrese el código del  libro");
+                                    cod1 = l.nextInt();
+                                    if (controladorLibroDigital.read(cod1) != null) {
+                                    System.out.println("Precio Establecido");
+                                     precio = l.nextDouble();  
+                                    System.out.println("Código del libro:");
+                                     codigo=l.nextInt();
+                                    System.out.println("Titulo del libro:");
+                                    titulo=l.next();
+                                    System.out.println("Autor del libro:");
+                                    autor=l.next();
+                                    System.out.println("Edición del Libro");
+                                    edicion=l.next();
+                                    objeto = new LibrosDigitales(precio, codigo, titulo, autor, edicion);
+                                    objeto.setCodigo(cod1);
+                                    controladorLibroDigital.update(objeto);
+                                    } else {
+                                        System.out.println("El Libro no existe");
+                                    }
+                                    break;
+                                case 4:
+                                    System.out.println("Ingrese el código del libro  que va a eliminar");
+                                    cod1 = l.nextInt();
+                                    controladorLibroDigital.delete(cod1);
+                                    break;
+                                case 5:
+                                    controladorLibroDigital.imprimir();
+                                    break;
+                                case 6:
+                                    System.out.println("Ingrese el código del libro");
+                                    int codigolibro = l.nextInt();
+                                    LibrosDigitales librodig=controladorLibroDigital.read(codigolibro);
+                                    //System.err.print("Precio total del libro impreso:");
+                                    System.err.println("Precio total del libro impreso:"+librodig.getPrecioTotal());
+                                    break;
+                                case 7:
+                                    repLib = false;
+                                    break;
+                            }
+                        } while (repLib);
                     break;
-                
-                case 3:
-                    repetir = false;
-            }
-                    } while (repLibro);
-                    break;
+                    
+                    case 2:
+                        boolean repCliente = true;
+                        do {
+
+                            System.out.println("MENÚ LIBRO IMPRESO");
+                            System.out.println("1. Crear nuevo libro Impreso ");
+                            System.out.println("2. Buscar libro Impreso");
+                            System.out.println("3. Actualizar libro Impreso");
+                            System.out.println("4. Eliminar libro Impreso");
+                            System.out.println("5. Listar libros Impreso");
+                            System.out.println("6. Precio Total del Libro");
+                            System.out.println("7. Regresar al menu principal");
+                            System.out.println("Selecciona una opción");
+                           int lib= l.nextInt();
+                            switch (lib) {
+                                case 1: //Double precio, Double comision, Double costoEnvio, int codigo, String titulo, String autor, String edicion
+                                    System.out.println("Precio Establecido");
+                                    Double precio = l.nextDouble();
+                                    System.out.println("Código del libro:");
+                                    int codigo=l.nextInt();
+                                    System.out.println("Titulo del libro:");
+                                    String titulo=l.next();
+                                    System.out.println("Autor del libro:");
+                                    String autor=l.next();
+                                    System.out.println("Edicción del Libro");
+                                    String edicion=l.next();
+                                    LibrosImpreso objeto = new LibrosImpreso(precio, codigo, titulo, autor, edicion);
+                                    controladorLibroImpreso.create(objeto);
+                                    break;
+                               case 2:
+                                    System.out.println("Ingrese el código del Libro impreso");
+                                    int cod1 = l.nextInt();
+                                   System.out.println(controladorLibroImpreso.read(cod1));
+                                    break;
+                                case 3:
+                                    System.out.println("Ingrese el código del  libro");
+                                    cod1 = l.nextInt();
+                                    if (controladorLibroImpreso.read(cod1) != null) {
+                                    System.out.println("Precio Establecido");
+                                     precio = l.nextDouble();  
+                                    System.out.println("Código del libro:");
+                                     codigo=l.nextInt();
+                                    System.out.println("Título del libro:");
+                                    titulo=l.next();
+                                    System.out.println("Autor del libro:");
+                                    autor=l.next();
+                                    System.out.println("Ediccion del Libro");
+                                    edicion=l.next();
+                                    objeto = new LibrosImpreso(precio, codigo, titulo, autor, edicion);
+                                    objeto.setCodigo(cod1);
+                                    controladorLibroImpreso.update(objeto);
+                                    } else {
+                                        System.out.println("El Libro no existe");
+                                    }
+                                    break;
+                                case 4:
+                                    System.out.println("Ingrese el código del libro  que va a eliminar");
+                                    cod1 = l.nextInt();
+                                    controladorLibroImpreso.delete(cod1);
+                                    break;
+                                case 5:
+                                    controladorLibroImpreso.imprimir();
+                                    break;
+                                case 6:
+                                    System.out.println("Ingrese el código del libro");
+                                    int codigolibro = l.nextInt();
+                                    LibrosImpreso libroim=controladorLibroImpreso.read(codigolibro);
+                                    //System.err.print("Precio total del libro impreso:");
+                                    System.err.println("Precio total del libro impreso:"+libroim.getPrecioTotal());
+                                    //controladorLibroImpreso.imprimir();
+                                    break;
+                                case 7:
+                                    repCliente = false;
+                                    break;
+                            }
+                        } while (repCliente);
+
+                        break;
+
+                    case 3:
+                        repLibro = false;
+                        break;
+                }
+                        } while (repLibro);
+                        break;
                 case 2:
                     boolean repCliente = true;
                     do {
@@ -349,7 +351,7 @@ public class libreria {
                                 controladorCredito.imprimir();
                                 break;
                             case 6:
-                                repCliente = false;
+                                reptar = false;
                                 break;
                         }
                     } while (reptar);
@@ -357,7 +359,7 @@ public class libreria {
                     break;
                     //-------------------------------------------------------------------------------------------------------------------                    //-------------------------------------------------------------------------------------------------------------------
                 
-                case 5:
+                case 4:
                     repetir = false;
             }
 
