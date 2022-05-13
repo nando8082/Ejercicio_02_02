@@ -51,7 +51,9 @@ public class libreria {
 						System.out.println("Precio del Libro");
 						l.setPrecio(teclado.nextDouble());
 						ListaLibros.add(l);
+                                                System.out.println("Precio Total es : ");
 						l.calcularPrecio();
+                                                System.out.println(l.precio + l.calcularComision());
 						break;
 					case 2:
 						System.out.println("***** INGRESE LIBRO FISICO *****");
@@ -67,7 +69,9 @@ public class libreria {
 						System.out.println("Precio del Libro");
 						f.setPrecio(teclado.nextDouble());
 						ListaLibros.add(f);
+                                                System.out.println("Precio Total es : ");
 						f.calcularPrecio();
+                                                System.out.println(f.precio + f.calcularComision());
 						break;
 				}
 				break;

@@ -51,7 +51,6 @@ public abstract class Libro{
 	
 	public void calcularPrecio() {
 		double total = calcularComision() + calcularVariable();
-		System.out.println("El valor final del libro es: "+total);
 	}
 
 }

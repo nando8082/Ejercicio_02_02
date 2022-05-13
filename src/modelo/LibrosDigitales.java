@@ -21,14 +21,12 @@ public class LibrosDigitales extends Libro {
 	@Override
 	public double calcularComision() {
 		double comision = this.getPrecio()*0.12;
-		System.out.println(comision);
 		return comision;
 	}
 
 	@Override
 	public double calcularVariable() {
 		double variable = this.getPrecio();
-		System.out.println(variable);
 		return variable;
 	}
 	
